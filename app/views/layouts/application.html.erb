@@ -6,13 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
-
   <body>
-    <main class="container mx-auto mt-28 px-5">
+    <main class="container mx-auto px-5">
+      <%= render 'layouts/navigation' %>
       <%= yield %>
     </main>
   </body>
