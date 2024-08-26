@@ -1,26 +1,39 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="hero bg-base-200 min-h-screen p-8">
+  <div class="hero-content flex-col lg:flex-row-reverse gap-12">
+    <div class="text-center lg:text-left">
+      <h1 class="text-5xl font-bold">Login now!</h1>
+      <p class="py-6">
+        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+        quasi. In deleniti eaque aut repudiandae et a id nisi.
+      </p>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: "card-body"}) do |f| %>
+        <div class="form-control">
+          <%= f.label :email, class: "label" do %>
+            <span class="label-text">Email</span>
+          <% end %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input input-bordered", placeholder: "email" %>
+        </div>
+        <div class="form-control">
+          <%= f.label :password, class: "label" do %>
+            <span class="label-text">Password</span>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "input input-bordered", placeholder: "password" %>
+          <label class="label">
+            <%= link_to 'Forgot password?', new_user_password_path, class: "label-text-alt link link-hover" %>
+          </label>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="form-control flex-row items-center gap-2">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+        <div class="form-control mt-6">
+          <%= f.submit "Log in", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
