@@ -1,2 +1,9 @@
-<% pp "hello", habit %>
-<div><%= habit.name %></div>
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title"><%= habit.name %></h2>
+    <p>Habit description</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Buy Now</button>
+    </div>
+  </div>
+</div>
