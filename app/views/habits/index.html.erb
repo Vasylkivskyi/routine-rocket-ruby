@@ -1,4 +1,10 @@
 <h1 class="text-center text-2xl">Habits</h1>
+<% if @habits.empty? %>
+  <div class="h-96 flex flex-col items-center justify-center">
+    <h2 class="text-center text-xl">You don't have any habits yet.</h2>
+    <%= link_to 'Let\'s create the one', new_habit_path, class: "mt-4 link link-primary" %>
+  </div>
+<% end %>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   <%= render @habits %>
 </div>

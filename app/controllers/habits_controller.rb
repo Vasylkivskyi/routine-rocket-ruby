@@ -2,15 +2,15 @@ class HabitsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_habit, only: %w[edit update]
   def index
-    @habits = Habit.all
+    @habits = current_user.habits.all
   end
 
   def new
-    @habit = Habit.new
+    @habit = current_user.habits.new
   end
   
   def create 
-    @habit = Habit.new(habit_params)
+    @habit = current_user.habits.new(habit_params)
     if (@habit.save)
       redirect_to habits_path, notice: "Hooray!🥳 Your new habit was created!"
     else
@@ -19,11 +19,9 @@ class HabitsController < ApplicationController
   end
 
   def edit 
-    @habit = Habit.find(params[:id])
   end
 
   def update
-    @habit = Habit.find(params[:id])
     if @habit.update(habit_params)
       redirect_to @habit, notice: "Your habit was updated!" 
     else
@@ -38,6 +36,6 @@ class HabitsController < ApplicationController
   end
 
   def find_habit 
-    @habit = Habit.find(params[:id])
+    @habit = current_user.habits.find(params[:id])
   end
 end
