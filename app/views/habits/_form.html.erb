@@ -1,0 +1,18 @@
+<div class="w-full flex justify-center mt-4">
+  <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+    <%= form_with model: @habit, :html => { class: "card-body"} do |form| %>
+      <div class="form-control">
+        <%= form.label :name, class: "label" do %>
+          <span class="label-text">Habit name</span>
+        <% end %>
+        <%= form.text_field :name, class: "input input-bordered w-full", placeholder: "Your new habit name" %>
+        <% if !@habit.errors.full_messages.empty? %>
+          <div class="text-rose-500 text-sm mt-1"><%= @habit.errors.full_messages.join(', ') %></div>
+        <% end %>
+      </div>
+      <div class="form-control mt-6">
+        <%= form.submit "Create", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

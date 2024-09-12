@@ -2,7 +2,8 @@
   <div class="card-body">
     <h2 class="card-title"><%= habit.name %></h2>
     <p>Habit description</p>
-    <div class="card-actions justify-end">
+    <div class="card-actions justify-between items-center">
+      <%= link_to "Edit", edit_habit_path(habit), class: "link link-primary" %>
       <button class="btn btn-primary">Buy Now</button>
     </div>
   </div>
