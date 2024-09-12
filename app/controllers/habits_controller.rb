@@ -1,4 +1,5 @@
 class HabitsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_habit, only: %w[edit update]
   def index
     @habits = Habit.all
