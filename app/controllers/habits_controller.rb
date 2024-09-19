@@ -1,6 +1,7 @@
 class HabitsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_habit, only: %w[edit update]
+  before_action :find_habit, only: %w[show edit update]
+
   def index
     @habits = current_user.habits.all
   end
@@ -8,8 +9,8 @@ class HabitsController < ApplicationController
   def new
     @habit = current_user.habits.new
   end
-  
-  def create 
+
+  def create
     @habit = current_user.habits.new(habit_params)
     if (@habit.save)
       redirect_to habits_path, notice: "Hooray!🥳 Your new habit was created!"
@@ -18,24 +19,28 @@ class HabitsController < ApplicationController
     end
   end
 
-  def edit 
+  def show
+
+  end
+
+  def edit
   end
 
   def update
     if @habit.update(habit_params)
-      redirect_to @habit, notice: "Your habit was updated!" 
+      redirect_to @habit, notice: "Your habit was updated!"
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   private
-  
-  def habit_params 
+
+  def habit_params
     params.require(:habit).permit(:name)
   end
 
-  def find_habit 
+  def find_habit
     @habit = current_user.habits.find(params[:id])
   end
 end

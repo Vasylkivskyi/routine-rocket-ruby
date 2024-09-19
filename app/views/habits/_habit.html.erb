@@ -3,7 +3,10 @@
     <h2 class="card-title"><%= habit.name %></h2>
     <p>Habit description</p>
     <div class="card-actions justify-between items-center">
-      <%= link_to "Edit", edit_habit_path(habit), class: "link link-primary" %>
+      <div class="flex gap-2">
+        <%= link_to_if(action_name == 'index', 'Show', habit, class: "link link-primary") %>
+        <%= link_to "Edit", edit_habit_path(habit), class: "link link-primary" %>
+      </div>
       <button class="btn btn-primary">Buy Now</button>
     </div>
   </div>
