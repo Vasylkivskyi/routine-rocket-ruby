@@ -34,6 +34,7 @@ class HabitsController < ApplicationController
     end
   end
 
+
   private
 
   def habit_params
