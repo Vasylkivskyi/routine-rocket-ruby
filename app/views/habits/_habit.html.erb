@@ -4,7 +4,7 @@
     <p>Habit description</p>
     <div class="card-actions justify-between items-center">
       <div class="flex gap-2">
-        <% if action_name == :index %>
+        <% if action_name == "index" %>
           <%= link_to'Show', habit, class: "link link-primary" %>
         <% end %>
         <%= link_to "Edit", edit_habit_path(habit), class: "link link-primary" %>
