@@ -1,6 +1,6 @@
 class HabitsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_habit, only: %w[show edit update]
+  before_action :find_habit, only: %w[show edit update destroy]
 
   def index
     @habits = current_user.habits.all
@@ -29,6 +29,14 @@ class HabitsController < ApplicationController
   def update
     if @habit.update(habit_params)
       redirect_to @habit, notice: "Your habit was updated!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @habit.destroy()
+      redirect_to habits_path, notice: "Habit was deleted!"
     else
       render :edit, status: :unprocessable_entity
     end

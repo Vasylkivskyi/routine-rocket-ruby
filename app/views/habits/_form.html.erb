@@ -13,6 +13,11 @@
       <div class="form-control mt-6">
         <%= form.submit "Create", class: "btn btn-primary" %>
       </div>
+      <% if action_name == :edit %>
+        <div class="form-control mt-6">
+          <%= link_to 'Delete', habit_path(@habit), data: { "turbo_method": :delete, turbo_confirm: "Are you sure?" }, class: "link text-red-500" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
