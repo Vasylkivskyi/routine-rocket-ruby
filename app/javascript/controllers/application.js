@@ -4,7 +4,7 @@ import Notification from '@stimulus-components/notification'
 const application = Application.start()
 application.register('notification', Notification)
 
-application.debug = false
+application.debug = fa
 window.Stimulus = application
 
 export { application }

@@ -1,0 +1,12 @@
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Are you sure you want to delete this habit?</h3>
+    <p class="py-4">This action cannot be undone.</p>
+    <div class="modal-action">
+      <form method="dialog" class="flex gap-4">
+        <%= link_to 'Confirm', habit_path(@habit), data: { "turbo_method": :delete }, class: "btn text-red-500" %>
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
