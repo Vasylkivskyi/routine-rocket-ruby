@@ -1,12 +1,12 @@
 <!-- Hero Section -->
-<div class="hero min-h-screen" style="background-image: url('https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp');">
+<div class="hero min-h-screen" style="background-image: url('<%= asset_path("jumbotron.jpg") %>');">
   <div class="hero-overlay bg-opacity-70"></div>
   <div class="hero-content text-center text-neutral-content">
     <div class="max-w-lg">
       <h1 class="mb-5 text-5xl font-bold">Welcome to <br>
         Routine Rocket</h1>
-      <p class="mb-5">Experience the best platform for managing your tasks and boosting your productivity.</p>
-      <a class="btn btn-primary btn-lg" href="#">Get Started</a>
+      <p class="mb-5">The Road to your dream life</p>
+      <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 </div>
